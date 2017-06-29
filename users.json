@@ -1,0 +1,8 @@
+[
+    {"orderId":1,"name":"prepared","last":"Flintstone","email":"fred@flintstone.com","createdAt":"2017-06-28T08:07:21.978Z","deliveryTime":"B"},
+    {"orderId":2,"name":"checked-in","last":"Flintstone","email":"wilma@flintstone.com","createdAt":"2017-06-19T15:07:21.624Z","deliveryTime":"B"},
+    {"orderId":3,"name":"checked-out","last":"Flintstone","email":"pebbles@flintstone.com","createdAt":"2017-06-20T03:43:21.731Z","deliveryTime":"M"},
+    {"orderId":4,"name":"prepared","last":"Rubble","email":"barney@rubble.com","createdAt":"2017-06-28T02:05:37.378Z","deliveryTime":"M"},
+    {"orderId":5,"name":"checked-in","last":"Rubble","email":"betty@rubble.com","createdAt":"2017-06-02T19:06:18.350Z","deliveryTime":"B"},
+    {"orderId":6,"name":"checked-out","last":"Rubble","email":"bambam@rubble.com","createdAt":"2017-06-10T20:12:14.400Z","deliveryTime":"B"}
+]
