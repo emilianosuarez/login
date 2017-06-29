@@ -39,10 +39,11 @@ Ext.define('LoginApp.view.main.List', {
             }
         },
         {
+            xtype: 'datecolumn',
             text: 'Created At',
             dataIndex: 'createdAt',
-            renderer: Ext.util.Format.dateRenderer('Y-m-d'),
             flex: 1,
+            renderer: Ext.util.Format.dateRenderer('Y-m-d'),
             filter: {
                 type: 'date'
             }
