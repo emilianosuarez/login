@@ -9,6 +9,10 @@ Ext.define('LoginApp.view.main.Main', {
   extend: 'Ext.tab.Panel',
   xtype: 'app-main',
 
+  config: {
+      accessToken: '',
+  },
+
   requires: [
       'Ext.plugin.Viewport',
       'Ext.window.MessageBox',
@@ -87,7 +91,8 @@ Ext.define('LoginApp.view.main.Main', {
       iconCls: 'fa-home',
       // The following grid shares a store with the classic version's grid as well!
       items: [{
-          xtype: 'mainlist'
+          xtype: 'mainlist',
+          accessToken: this.accessToken,
       }]
   }]
 });

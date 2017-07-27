@@ -25,13 +25,14 @@ Ext.define('LoginApp.view.login.LoginController', {
 
             success: function (response) {
                 var jsonResp = Ext.util.JSON.decode(response.responseText);
-
-                localStorage.setItem("accessToken", jsonResp.id);
+                var token = jsonResp.id;
+                localStorage.setItem("accessToken", token);
 
                 loginView.destroy();
 
                 Ext.create({
-                    xtype: 'app-main'
+                    xtype: 'app-main',
+                    accessToken: token
                 });
 
             },

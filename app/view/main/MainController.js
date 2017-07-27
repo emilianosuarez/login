@@ -18,5 +18,10 @@ Ext.define('LoginApp.view.main.MainController', {
       Ext.create({
           xtype: 'login'
       });
+  },
+
+  // FIXME: To be removed
+  onFilterApplied: function(filter, name) {
   }
+
 });

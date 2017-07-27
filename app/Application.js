@@ -7,7 +7,6 @@ Ext.define('LoginApp.Application', {
         // TODO: add global / shared stores here
     ],
 
-
     launch: function () {
 
         // It's important to note that this type of application could use
@@ -21,7 +20,8 @@ Ext.define('LoginApp.Application', {
         // If TutorialLoggedIn isn't true, we display the login window,
         // otherwise, we display the main view
         Ext.create({
-            xtype: accessToken ? 'app-main' : 'login'
+            xtype: accessToken ? 'app-main' : 'login',
+            accessToken: accessToken
         });
 
     },
