@@ -1,6 +1,6 @@
 Ext.define('LoginApp.view.login.LoginController', {
   extend: 'Ext.app.ViewController',
-  
+
   alias: 'controller.login',
 
   onLoginClick: function(button) {
@@ -29,8 +29,6 @@ Ext.define('LoginApp.view.login.LoginController', {
         var storage = Ext.util.LocalStorage.get('id')
         storage.setItem('accessToken', token);
         storage.release();
-
-        console.log('accessToken? ' + Ext.util.LocalStorage.get('id').getItem('accessToken'));
 
         loginView.destroy();
 

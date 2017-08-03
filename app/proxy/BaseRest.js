@@ -13,8 +13,6 @@ Ext.define('LoginApp.proxy.BaseRest', {
   },
 
   buildUrl: function(request) {
-    console.log('LoginApp.proxy.BaseRest');
-
     var me = this,
         url = me.callParent(arguments);
 /*
