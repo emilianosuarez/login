@@ -8,20 +8,18 @@ Ext.define('LoginApp.view.main.MainController', {
   alias: 'controller.main',
 
   onClickButton: function (button) {
-      // Remove the localStorage key/value
-      localStorage.removeItem('accessToken');
+    Ext.util.LocalStorage.get('id').removeItem('accessToken');
 
-      // Remove Main View
-      this.getView().destroy();
+    this.getView().destroy();
 
-      // Add the Login Window
-      Ext.create({
-          xtype: 'login'
-      });
+    Ext.create({
+      xtype: 'login'
+    });
   },
 
   // FIXME: To be removed
-  onFilterApplied: function(filter, name) {
+  onFilterApplied: function(filter) {
+
   }
 
 });

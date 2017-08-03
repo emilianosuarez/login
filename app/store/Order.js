@@ -1,50 +1,66 @@
 Ext.define('LoginApp.store.Order', {
-    extend: 'Ext.data.Store',
+  extend: 'Ext.data.Store',
 
-    config: {
-        storeId: 'orderstore',
-        accessToken: ''
-    },
+  config: {
+    storeId: 'orderstore',
+  },
 
-    alias: 'store.order',
-    model: 'LoginApp.model.Order',
-    autoLoad: true,
+  alias: 'store.order',
+  model: 'LoginApp.model.Order',
+  autoLoad: true,
 
-    // autoSync: true,
-    // remoteFilter: true,
-    // remoteSort: true,
+  remoteFilter: true,
+  remoteSort: true,
 
-    proxy: {
-        type: 'rest',
-        headers: {
-            'Authorization': localStorage.getItem("accessToken"),
-        },
-        // FIXME: url harcoded
-        url: 'http://52.91.132.47:3000/users/me/orders',
-        reader: {
-            type: 'json',
-            rootProperty: ''
-        },
-    },
+  proxy: 'restproxy',
 
-    onFilter: function(property, operator, value) {
-        var filter = '';
+  listeners: {
+    beforeload: function(store) {
+      var accessToken = Ext.util.LocalStorage.get('id').getItem('accessToken');
+      this.getProxy().setHeaders({
+          'Authorization': accessToken,
+      });
+      return true;
+    }
+  },
 
-        if (operator == 'like') {
-          filter = "\"" + property + "\"" + ": {\"like\": \"%" + value + "%\"}";
-        }
-        // console.log('filter: ' + "{\"where\": {" + filter + "}}");
+  onFilter: function(property, operator, value) {
+/*
+    var accessToken;
+    var storeSession = Ext.create('Ext.data.Store', {
+        model: "Session"
+    });
+    storeSession.load();
+    // store.add({accessToken: 'aascasfas'});
+    // store.sync();
 
-        // FIXME: Remove hard-coded params
-        var store = Ext.getStore('orderstore');
-        store.load({
-          params: {
-            page: 1,
-            start: 0,
-            limit: 10,
-            filter: "{\"where\": {" + filter + "}}",
-          },
-        });
+    if (storeSession.first()) {
+        accessToken = storeSession.first().data.accessToken;
+    }
+    console.log('accessToken: ' + accessToken);
+*/
+    var filter = '';
 
-    },
+    if (operator == 'like') {
+      filter = "\"" + property + "\"" + ": {\"like\": \"%" + value + "%\"}";
+    }
+
+    // FIXME: Remove hard-coded params
+    var store = Ext.getStore('orderstore');
+    /*
+    store.getProxy().setHeaders({
+        'Authorization': accessToken,
+    });
+    */
+
+    store.load({
+      params: {
+        page: 1,
+        start: 0,
+        limit: 10,
+        filter: "{\"where\": {" + filter + "}}",
+      },
+    });
+  },
+
 });

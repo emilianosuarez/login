@@ -1,38 +1,25 @@
 Ext.define('LoginApp.Application', {
-    extend: 'Ext.app.Application',
+  extend: 'Ext.app.Application',
 
-    name: 'LoginApp',
+  name: 'LoginApp',
 
-    stores: [
-        // TODO: add global / shared stores here
-    ],
+  launch: function () {
+    var accessToken;
+    accessToken = Ext.util.LocalStorage.get('id').getItem('accessToken');
 
-    launch: function () {
+    Ext.create({
+      xtype: accessToken ? 'app-main' : 'login',
+    });
+  },
 
-        // It's important to note that this type of application could use
-        // any type of storage, i.e., Cookies, LocalStorage, etc.
-        var accessToken;
+  onAppUpdate: function () {
+    Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
+      function (choice) {
+        if (choice === 'yes') {
+          window.location.reload();
+        }
+      }
+    );
+  },
 
-        // Check to see the current value of the localStorage key
-        accessToken = localStorage.getItem("accessToken");
-
-        // This ternary operator determines the value of the TutorialLoggedIn key.
-        // If TutorialLoggedIn isn't true, we display the login window,
-        // otherwise, we display the main view
-        Ext.create({
-            xtype: accessToken ? 'app-main' : 'login',
-            accessToken: accessToken
-        });
-
-    },
-
-    onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-            function (choice) {
-                if (choice === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
-    }
 });

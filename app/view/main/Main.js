@@ -9,17 +9,13 @@ Ext.define('LoginApp.view.main.Main', {
   extend: 'Ext.tab.Panel',
   xtype: 'app-main',
 
-  config: {
-      accessToken: '',
-  },
-
   requires: [
-      'Ext.plugin.Viewport',
-      'Ext.window.MessageBox',
+    'Ext.plugin.Viewport',
+    'Ext.window.MessageBox',
 
-      'LoginApp.view.main.MainController',
-      'LoginApp.view.main.MainModel',
-      'LoginApp.view.main.List'
+    'LoginApp.view.main.MainController',
+    'LoginApp.view.main.MainModel',
+    'LoginApp.view.main.List'
   ],
 
   controller: 'main',
@@ -33,66 +29,64 @@ Ext.define('LoginApp.view.main.Main', {
   tabRotation: 0,
 
   header: {
-      layout: {
-          align: 'stretchmax'
+    layout: {
+      align: 'stretchmax'
+    },
+    title: {
+      bind: {
+        text: '{name}'
       },
-      title: {
-          bind: {
-              text: '{name}'
-          },
-          flex: 0
-      },
-      iconCls: 'fa-th-list',
-      items: [{
-          xtype: 'button',
-          text: 'Logout',
-          margin: '10 0',
-          handler: 'onClickButton'
-      }]
+      flex: 0
+    },
+    iconCls: 'fa-th-list',
+    items: [{
+      xtype: 'button',
+      text: 'Logout',
+      margin: '10 0',
+      handler: 'onClickButton'
+    }]
   },
 
   tabBar: {
-      flex: 1,
-      layout: {
-          align: 'stretch',
-          overflowHandler: 'none'
-      }
+    flex: 1,
+    layout: {
+      align: 'stretch',
+      overflowHandler: 'none'
+    }
   },
 
   responsiveConfig: {
-      tall: {
-          headerPosition: 'top'
-      },
-      wide: {
-          headerPosition: 'left'
-      }
+    tall: {
+      headerPosition: 'top'
+    },
+    wide: {
+      headerPosition: 'left'
+    }
   },
 
   defaults: {
-      bodyPadding: 20,
-      tabConfig: {
-          plugins: 'responsive',
-          responsiveConfig: {
-              wide: {
-                  iconAlign: 'left',
-                  textAlign: 'left'
-              },
-              tall: {
-                  iconAlign: 'top',
-                  textAlign: 'center',
-                  width: 120
-              }
-          }
+    bodyPadding: 20,
+    tabConfig: {
+      plugins: 'responsive',
+      responsiveConfig: {
+        wide: {
+          iconAlign: 'left',
+          textAlign: 'left'
+        },
+        tall: {
+          iconAlign: 'top',
+          textAlign: 'center',
+          width: 120
+        }
       }
+    }
   },
 
   items: [{
-      title: 'Home',
-      iconCls: 'fa-home',
-      // The following grid shares a store with the classic version's grid as well!
-      items: [{
-          xtype: 'mainlist',
-          accessToken: this.accessToken,
-      }]
+    title: 'Home',
+    iconCls: 'fa-home',
+    items: [{
+      xtype: 'mainlist',
+    }]
   }]
 });

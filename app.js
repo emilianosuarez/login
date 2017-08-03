@@ -3,16 +3,21 @@
  * and launch() the Application class.
  */
 Ext.application({
-    extend: 'LoginApp.Application',
+  extend: 'LoginApp.Application',
 
-    name: 'LoginApp',
+  name: 'LoginApp',
 
-    requires: [
-        // This will automatically load all classes in the LoginApp namespace
-        // so that application classes do not need to require each other.
-        'LoginApp.*'
-    ],
+  requires: [
+    // This will automatically load all classes in the LoginApp namespace
+    // so that application classes do not need to require each other.
+    'LoginApp.*'
+  ],
 
-    // The name of the initial view to create.
-    //mainView: 'LoginApp.view.main.Main'
+  // The name of the initial view to create.
+  //mainView: 'LoginApp.view.main.Main'
+
+  init: function() {
+    // var app = new LoginApp.Application();
+  }
+
 });
