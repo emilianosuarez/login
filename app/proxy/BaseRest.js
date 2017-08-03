@@ -13,8 +13,21 @@ Ext.define('LoginApp.proxy.BaseRest', {
   },
 
   buildUrl: function(request) {
-    var me = this,
-        url = me.callParent(arguments);
+
+    var me = this;
+    me.setExtraParam('a', 1);
+    var url = me.callParent(arguments);
+
+    console.log('request:' + request.$className);
+    console.log('me:' + me.$className);
+    console.log('this:' + this.$className);
+    console.log('url:' + url);
+    console.log(request._params);
+
+
+    // console.log(this.getExtraParams().toString() );
+
+    // console.log('isInstance: ' . request.getProxy() );
 /*
       if( ! Ext.isEmpty(Helper.apiToken)) {
           url = Ext.urlAppend(url, "token="+Helper.apiToken);

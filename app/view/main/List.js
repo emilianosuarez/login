@@ -6,6 +6,7 @@ Ext.define('LoginApp.view.main.List', {
     'LoginApp.store.Order'
   ],
 
+  renderTo: Ext.getBody(),
   title: 'Order',
 
   store: {
@@ -16,19 +17,19 @@ Ext.define('LoginApp.view.main.List', {
 
   columns: [
     {
-        text: 'Order ID',
-        dataIndex: 'orderId',
-        filter: {
-            type: 'number'
-        }
+      text: 'Order ID',
+      dataIndex: 'orderId',
+      filter: {
+        type: 'number'
+      }
     },
     {
-        text: 'Delivery Time',
-        dataIndex: 'deliveryTime',
-        flex: 1,
-        filter: {
-            type: 'list'
-        }
+      text: 'Delivery Time',
+      dataIndex: 'deliveryTime',
+      flex: 1,
+      filter: {
+        type: 'list'
+      }
     },
     {
       text: 'Name',
@@ -51,6 +52,10 @@ Ext.define('LoginApp.view.main.List', {
 
               if (e.getKey() === e.ENTER) {
                 // this.up('gridcolumn').filter.setActive(true);
+                console.log('a: ' + this.up('gridcolumn').$className);
+                console.log('b: ' + this.up('gridcolumn').filter.$className);
+                console.log('c: ' + this.$className);
+
                 var f = this.up('gridcolumn').filter;
                 var operator = f.operator;
                 var value = f.getValue(field);

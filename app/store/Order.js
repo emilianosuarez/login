@@ -1,5 +1,5 @@
 Ext.define('LoginApp.store.Order', {
-  extend: 'Ext.data.Store',
+  extend: 'LoginApp.store.Base',
 
   config: {
     storeId: 'orderstore',
@@ -7,22 +7,8 @@ Ext.define('LoginApp.store.Order', {
 
   alias: 'store.order',
   model: 'LoginApp.model.Order',
-  autoLoad: true,
-
-  remoteFilter: true,
-  remoteSort: true,
 
   proxy: 'restproxy',
-
-  listeners: {
-    beforeload: function(store) {
-      var accessToken = Ext.util.LocalStorage.get('id').getItem('accessToken');
-      this.getProxy().setHeaders({
-          'Authorization': accessToken,
-      });
-      return true;
-    }
-  },
 
   onFilter: function(property, operator, value) {
 /*
