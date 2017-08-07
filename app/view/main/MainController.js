@@ -8,12 +8,15 @@ Ext.define('LoginApp.view.main.MainController', {
   alias: 'controller.main',
 
   onClickButton: function (button) {
+
+    // TODO: quitar el token del proxy y de local storage con el metodo de logout
+    
     Ext.util.LocalStorage.get('id').removeItem('accessToken');
 
     this.getView().destroy();
 
     Ext.create({
-      xtype: 'login'
+      xtype: 'module-login'
     });
   },
 

@@ -1,7 +1,7 @@
-Ext.define('LoginApp.proxy.rest.Base', {
+Ext.define('LoginApp.proxy.Rest', {
   extend: 'Ext.data.proxy.Rest',
 
-  alias: 'proxy.rest.base',
+  // alias: 'proxy.rest',
 
   type: 'rest',
 
@@ -11,7 +11,7 @@ Ext.define('LoginApp.proxy.rest.Base', {
     type: 'json',
     rootProperty: ''
   },
-/*
+
   buildUrl: function(request) {
 
     var me = this;
@@ -30,5 +30,5 @@ Ext.define('LoginApp.proxy.rest.Base', {
 
     return url;
   },
-*/
+
 });

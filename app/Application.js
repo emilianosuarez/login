@@ -7,8 +7,10 @@ Ext.define('LoginApp.Application', {
     var accessToken;
     accessToken = Ext.util.LocalStorage.get('id').getItem('accessToken');
 
+    // TODO: quitar el accetoken al proxy: LoginApp.proxy.rest.Base
+    
     Ext.create({
-      xtype: accessToken ? 'app-main' : 'login',
+      xtype: accessToken ? 'app-main' : 'module-login',
     });
   },
 

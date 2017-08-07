@@ -24,6 +24,9 @@ Ext.define('LoginApp.view.login.LoginController', {
         password: userLoginData.password
       },
 
+      // TODO: agregar un metodo set (y get) token para agregarlo al proxy y setear el LocalStorage
+      //
+
       success: function (response) {
         var token = Ext.util.JSON.decode(response.responseText).id;
         var storage = Ext.util.LocalStorage.get('id')
@@ -37,7 +40,7 @@ Ext.define('LoginApp.view.login.LoginController', {
         });
 
       },
-      
+
       failure: function (response) {
         Ext.Msg.alert("Error", "Your account or password is incorrect");
       }

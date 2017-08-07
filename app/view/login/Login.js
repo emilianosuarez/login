@@ -1,6 +1,6 @@
 Ext.define('LoginApp.view.login.Login', {
   extend: 'Ext.window.Window',
-  xtype: 'login',
+  xtype: 'module-login',
 
   requires: [
     'LoginApp.view.login.LoginController',
