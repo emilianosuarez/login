@@ -15,7 +15,7 @@ Ext.define('LoginApp.view.main.Main', {
 
     'LoginApp.view.main.MainController',
     'LoginApp.view.main.MainModel',
-    'LoginApp.view.main.List'
+    'LoginApp.component.grid.Order',
   ],
 
   controller: 'main',

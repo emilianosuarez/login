@@ -11,7 +11,7 @@ Ext.define('LoginApp.view.login.LoginController', {
 
     Ext.Ajax.request({
       // FIXME: url harcoded
-      url: 'http://52.91.132.47:3000/users/login',
+      url: 'http://107.23.193.148:3000/users/login',
       method: 'POST',
 
       headers: {
@@ -37,6 +37,7 @@ Ext.define('LoginApp.view.login.LoginController', {
         });
 
       },
+      
       failure: function (response) {
         Ext.Msg.alert("Error", "Your account or password is incorrect");
       }
